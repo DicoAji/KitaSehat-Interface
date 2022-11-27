@@ -14,8 +14,13 @@ html {
   font-family: "Pacifico", cursive !important;
 }
 
+section {
+  /* 100px */
+  margin: 6.25rem 0;
+}
+
 p {
-  font-size: 16px;
+  font-size: 14px;
   color: #000;
   line-height: 1.5em;
 }
@@ -254,6 +259,7 @@ main {
 }
 /*---------------------------------------------------------- MEDIA QUERY */
 
+/* large */
 @media (min-width: 992px) {
   .navbarmenu .menuNavigasi {
     margin-left: 30px;
@@ -264,8 +270,15 @@ main {
   .tentang .tentang_img .gambar {
     padding-top: 90px;
   }
+  .carousel-cell {
+    width: 60%;
+  }
+  .sm-size {
+    display: none !important;
+  }
 }
-@media (max-width: 900px) {
+/* sm / md */
+@media (max-width: 991px) {
   footer .navigasi_footer {
     justify-content: start !important;
     text-align: start !important ;
@@ -274,12 +287,15 @@ main {
     text-align: start !important;
   }
   .beranda_header {
-    margin-top: 150px !important;
+    margin-top: 100px !important;
   }
   .beranda_header .ilustrator {
-    margin-top: 10px !important;
+    /* margin-top: 10px !important; */
     background-size: contain !important;
     background-position: center !important;
+  }
+  .lg-size {
+    display: none !important;
   }
 }
 
@@ -287,7 +303,25 @@ main {
   footer .navigasi_footer {
     margin-top: 30px;
   }
+  .beranda_header .ilustrator {
+    height: 70vh !important;
+  }
+  .beranda_lg {
+    width: 100% !important;
+  }
+  .lg_d_none {
+    display: block !important;
+  }
 }
+@media (min-width: 771px) {
+  .sm_d_none {
+    display: block !important ;
+  }
+  .carousel-cell {
+    height: 400px;
+  }
+}
+
 .btn_red {
   background-color: #d64a4a;
   color: white;
@@ -303,7 +337,7 @@ main {
 
 .beranda_header .ilustrator {
   background-image: url("../img/ilustrator1.png");
-  background-position: center;
+  /* background-position: center; */
   /* background-size: cover; */
   height: 90vh;
   background-repeat: no-repeat;
@@ -328,4 +362,83 @@ footer ul li a {
 
 footer .socmed img {
   margin-right: 20px;
+}
+
+.carousel {
+  background: none;
+}
+
+.carousel-cell {
+  width: 70%;
+  height: 200px;
+  /* flex-box, center image in cell */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.carousel-cell img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  /* dim unselected */
+  opacity: 0.7;
+  -webkit-transform: scale(0.85);
+  transform: scale(0.85);
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s, transform 0.3s,
+    -webkit-filter 0.3s, filter 0.3s;
+  transition: opacity 0.3s, transform 0.3s, filter 0.3s;
+}
+
+/* brighten selected image */
+.carousel-cell.is-selected img {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-filter: none;
+  filter: none;
+}
+
+/* buttons, no circle */
+.flickity-prev-next-button {
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  opacity: 0.6;
+}
+.flickity-prev-next-button:hover {
+  background: transparent;
+  opacity: 1;
+}
+/* arrow color */
+.flickity-prev-next-button .arrow {
+  fill: black;
+}
+.flickity-prev-next-button.no-svg {
+  color: var(--biruMuda);
+}
+/* closer to edge */
+.flickity-prev-next-button.previous {
+  left: 0;
+}
+.flickity-prev-next-button.next {
+  right: 0;
+}
+/* hide disabled button */
+.flickity-prev-next-button:disabled {
+  display: none;
+}
+
+/* tim developer */
+.box_tim_develop {
+  box-shadow: 0px 4px 4px rgba(56, 56, 56, 0.35);
+  border-radius: 5px;
+  background: white;
 }
